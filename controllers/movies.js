@@ -58,7 +58,7 @@ const deleteMovie = (req, res, next) => {
       }
       return Movie.deleteOne(movie)
         .then(() => {
-          res.send(movie);
+          res.send({ message: 'movie removed' });
         });
     })
     .catch((err) => {
