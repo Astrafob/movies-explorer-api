@@ -34,7 +34,7 @@ const createUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        return next(new BadRequestError('invalid data to update dataUser'));
+        return next(new BadRequestError('invalid data to create User'));
       } if (err.code === 11000) {
         return next(new ConflictError('this user already exists'));
       }
