@@ -1,7 +1,6 @@
 const { celebrate, Joi } = require('celebrate');
 
-// eslint-disable-next-line no-useless-escape
-const urlPattern = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
+const urlPattern = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\\.-]+)+[\w\-\\._~:/?#[\]@!\\$&'\\(\\)\\*\\+,;=.]+$/;
 const idPattern = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
 
 const validateDataForCreateUser = celebrate({
@@ -15,7 +14,7 @@ const validateDataForCreateUser = celebrate({
 const validateDataforAuthorize = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(6),
+    password: Joi.string().required(),
   }),
 });
 
